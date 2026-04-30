@@ -2,29 +2,8 @@ import frappe
 from frappe.tests import IntegrationTestCase
 from frappe.utils import today, nowtime
 
+from x_electronics.x_electronics_wms.test_setup import make_item, make_warehouse
 from x_electronics.x_electronics_wms.utils import get_stock_balance, get_valuation_rate
-
-
-# ── shared fixtures ────────────────────────────────────────────────────────────
-
-def make_item(item_code):
-	if not frappe.db.exists("Item", item_code):
-		frappe.get_doc({
-			"doctype": "Item",
-			"item_code": item_code,
-			"item_name": item_code,
-			"uom": "Nos",
-		}).insert(ignore_permissions=True)
-
-
-def make_warehouse(name, is_group=0, parent=None):
-	if not frappe.db.exists("Warehouse", name):
-		frappe.get_doc({
-			"doctype": "Warehouse",
-			"warehouse_name": name,
-			"is_group": is_group,
-			"parent_warehouse": parent,
-		}).insert(ignore_permissions=True)
 
 
 def setup_fixtures():

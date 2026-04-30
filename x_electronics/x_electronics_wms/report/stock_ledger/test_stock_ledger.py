@@ -3,23 +3,8 @@ from frappe.tests import IntegrationTestCase
 from frappe.utils import today, nowtime
 
 from x_electronics.x_electronics_wms.report.stock_ledger.stock_ledger import execute
+from x_electronics.x_electronics_wms.test_setup import make_item, make_warehouse
 from x_electronics.x_electronics_wms.utils import post_stock_ledger_entry
-
-
-def make_item(code):
-	if not frappe.db.exists("Item", code):
-		frappe.get_doc({
-			"doctype": "Item", "item_code": code,
-			"item_name": code, "uom": "Nos",
-		}).insert(ignore_permissions=True)
-
-
-def make_warehouse(name, is_group=0, parent=None):
-	if not frappe.db.exists("Warehouse", name):
-		frappe.get_doc({
-			"doctype": "Warehouse", "warehouse_name": name,
-			"is_group": is_group, "parent_warehouse": parent,
-		}).insert(ignore_permissions=True)
 
 
 class TestStockLedgerReport(IntegrationTestCase):
