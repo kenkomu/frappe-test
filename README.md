@@ -168,6 +168,22 @@ x_electronics/
 
 ---
 
+## Screenshots
+
+### Workspace
+![X Electronics WMS Workspace](docs/screenshots/01-workspace.png)
+
+### Warehouse Tree
+![Warehouse Tree](docs/screenshots/02-warehouse-tree.png)
+
+### Item Master
+![Item List](docs/screenshots/03-item-list.png)
+
+### Stock Entry - Receipt
+![Stock Entry Receipt](docs/screenshots/04-stock-entry-receipt.png)
+
+---
+
 ## License
 
 MIT
